@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "100628899608",
+    "project_id": "yabatechsearch",
+    "storage_bucket": "yabatechsearch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100628899608:android:8a816d11597495c5e9206d",
+        "android_client_info": {
+          "package_name": "com.example.google_search_engine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100628899608-ui34kkaj6pbbliuqkma4eogunahe1aac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATkWRhjTF5h-IesPdav6uHBwLaHIi5wxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100628899608-ui34kkaj6pbbliuqkma4eogunahe1aac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
