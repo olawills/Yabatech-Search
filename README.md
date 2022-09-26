@@ -1,4 +1,4 @@
-# google_search_engine
+# Design and Implemetation Of Search Engine
 
 # Light Mode for Web Users
 ![](screenshots/1.png)   ![](screenshots/2.png)
