@@ -12,7 +12,7 @@
 Comming Soon....
 
 
-A School project built with Flutter and Firebase.
+# A School project built with Flutter and Firebase.
 
 # Features
 - Users ability to toggle between Dark Theme and Light Theme
