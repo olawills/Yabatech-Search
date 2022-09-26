@@ -31,12 +31,12 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-untrack_models/
+
 
 
 # Web related
 lib/generated_plugin_registrant.dart
-lib/firebase_options.dart
+
 
 # Symbolication related
 app.*.symbols
@@ -48,3 +48,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Unnesccesary folders
+untrack_models
+lib/firebase_options.dart
+.gitignore
