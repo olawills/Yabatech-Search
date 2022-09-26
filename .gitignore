@@ -52,4 +52,3 @@ app.*.map.json
 # Unnesccesary folders
 untrack_models
 lib/firebase_options.dart
-.gitignore
