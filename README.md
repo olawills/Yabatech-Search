@@ -15,11 +15,11 @@ Comming Soon....
 A School project built with Flutter and Firebase.
 
 # Features
-Users ability to toggle between Dark Theme and Light Theme
-Scalable and Fast
-Available on Android and Web future implementation include availability to IOS devices
-Ability to Sign In
-Retain History even if their power outage
+- Users ability to toggle between Dark Theme and Light Theme
+- Scalable and Fast
+- Available on Android and Web future implementation include Availability to IOS devices
+- Ability to Sign In
+- Retain History even if their power outage
 
 ## Getting Started
 
