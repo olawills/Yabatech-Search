@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_search_engine/colors/colors.dart';
+import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:provider/provider.dart';
 
 class SearchFooter extends StatelessWidget {
   const SearchFooter({Key? key}) : super(key: key);
@@ -7,12 +9,12 @@ class SearchFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Column(
       children: [
         Container(
-          // color: footerColor,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 150,
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width > 768 ? 30 : 10,
             vertical: 15,
           ),
           child: Row(
@@ -20,7 +22,7 @@ class SearchFooter extends StatelessWidget {
               Text(
                 'Nigeria',
                 style: TextStyle(
-                  color: Colors.grey[700],
+                  color: Colors.grey[800],
                   fontSize: 16,
                 ),
               ),
@@ -28,21 +30,79 @@ class SearchFooter extends StatelessWidget {
               Container(
                 height: 20,
                 width: 0.5,
-                color: Colors.grey,
+                color: primaryColor,
               ),
               const SizedBox(width: 10),
               const Icon(
                 Icons.circle,
                 size: 12,
-                color: Color(0xff70757a),
+                color: Colors.blue,
               ),
               const SizedBox(width: 10),
-              const Text(
-                'Lagos Mainland',
+              Text(
+                'Lagos Mainland, Lagos',
                 style: TextStyle(
-                  color: backgroundColor,
+                  color: themeProvider.isDarkMode
+                      ? primaryColor
+                      : Colors.grey[800],
+                  fontSize: 14,
                 ),
               )
+            ],
+          ),
+        ),
+        const Divider(
+          thickness: 0,
+          height: 9,
+          color: Colors.black26,
+        ),
+        Container(
+          height: 60,
+          padding: const EdgeInsets.only(top: 20, left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Help',
+                style: TextStyle(
+                  color: themeProvider.isDarkMode
+                      ? primaryColor
+                      : Colors.grey[800],
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(width: 20),
+              Text(
+                'Send FeedBack',
+                style: TextStyle(
+                  color: themeProvider.isDarkMode
+                      ? primaryColor
+                      : Colors.grey[800],
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(width: 20),
+              Text(
+                'Privacy',
+                style: TextStyle(
+                  color: themeProvider.isDarkMode
+                      ? primaryColor
+                      : Colors.grey[800],
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(width: 20),
+              Text(
+                'Terms',
+                style: TextStyle(
+                  color: themeProvider.isDarkMode
+                      ? primaryColor
+                      : Colors.grey[800],
+                  fontSize: 15,
+                ),
+              ),
+              // const SizedBox(width: 20),
             ],
           ),
         ),

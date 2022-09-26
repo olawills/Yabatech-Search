@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_search_engine/backend/auth/auth.dart';
+import 'package:google_search_engine/frontend/widgets/mobileFooter/mobile_footer.dart';
 import 'package:google_search_engine/frontend/widgets/navigation_drawer/navbar.dart';
 import 'package:google_search_engine/frontend/widgets/search/search_bar.dart';
-import 'package:google_search_engine/frontend/widgets/searchButtons/search_button.dart';
-import 'package:provider/provider.dart';
 
 class MobileScreenLayout extends StatelessWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);
@@ -23,23 +22,24 @@ class MobileScreenLayout extends StatelessWidget {
                 const EdgeInsets.symmetric(vertical: 10.0).copyWith(right: 10),
             child: MaterialButton(
               onPressed: () {
-                final provider =
-                    Provider.of<GoogleSignInProvider>(context, listen: false);
-                provider.googleLogin();
+                // final provider =
+                //     Provider.of<GoogleSignInProvider>(context, listen: false);
+                // provider.googleLogin();
               },
               color: const Color(0xff1a73eb),
-              child: const CircleAvatar(
-                radius: 40,
-                backgroundImage: NetworkImage(
-                  "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+              child:
+                  // const CircleAvatar(
+                  //   radius: 40,
+                  //   backgroundImage: NetworkImage(
+                  //     "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+                  //   ),
+                  // ),
+                  const Text(
+                'Sign in',
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               ),
-              // const Text(
-              //   'Sign in',
-              //   style: TextStyle(
-              //     color: Colors.white,
-              //   ),
-              // ),
             ),
           )
         ],
@@ -54,14 +54,16 @@ class MobileScreenLayout extends StatelessWidget {
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Column(
                     children: const [
                       Search(),
                       SizedBox(height: 20),
-                      SearchButtons(),
+                      // SearchButtons(),
                     ],
                   ),
+                  const MobileFooter(),
                 ],
               ),
             ),

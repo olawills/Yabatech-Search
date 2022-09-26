@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_search_engine/frontend/widgets/searchTabs/search_buttons_tabs.dart';
 
 class SearchTabs extends StatelessWidget {
-  const SearchTabs({Key? key}) : super(key: key);
+  final Color? color;
+  const SearchTabs({
+    Key? key,
+    this.color,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SizedBox(
       height: 55,
       child: Row(
@@ -19,39 +24,38 @@ class SearchTabs extends StatelessWidget {
               icon: Icons.search,
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: size.width <= 768 ? 10 : 20),
           MaterialButton(
             onPressed: () {},
             child: const SearchButtonTabs(
-              text: 'News',
-              icon: Icons.image,
+              text: 'Videos',
+              icon: Icons.video_camera_back,
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: size.width <= 768 ? 10 : 20),
           MaterialButton(
             onPressed: () {},
             child: const SearchButtonTabs(
               text: 'Images',
-              icon: Icons.article,
+              icon: Icons.image,
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: size.width <= 768 ? 10 : 20),
           MaterialButton(
             onPressed: () {},
             child: const SearchButtonTabs(
-              text: 'Maps',
+              text: 'News',
               icon: Icons.map,
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: size.width <= 768 ? 10 : 20),
           MaterialButton(
             onPressed: () {},
             child: const SearchButtonTabs(
-              text: 'Shopping',
-              icon: Icons.shop,
+              text: 'more',
+              icon: Icons.more,
             ),
           ),
-          const SizedBox(width: 20),
         ],
       ),
     );

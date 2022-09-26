@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
 import 'package:google_search_engine/frontend/widgets/searchButtonWidget/search_button_widget.dart';
 
 class SearchButtons extends StatelessWidget {
-  const SearchButtons({Key? key}) : super(key: key);
+  const SearchButtons({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

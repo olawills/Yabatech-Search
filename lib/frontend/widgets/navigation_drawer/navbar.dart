@@ -10,20 +10,18 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider =
         Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark
-            ? 'DarkTheme'
-            : 'LightTheme';
+            ? 'Dark Mode'
+            : 'Light Mode';
 
     const name = 'Williams Olabamidele';
     const email = 'wobdele@gmail.com';
     const urlImage =
         "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
-    const padding = EdgeInsets.symmetric(horizontal: 10);
+
     return Drawer(
       child: Material(
         child: Container(
-          // color: themeProvider,
           child: ListView(
-            // padding: padding,
             children: [
               buildHeader(
                 urlImage: urlImage,
@@ -75,7 +73,7 @@ class NavigationDrawer extends StatelessWidget {
     required String email,
     required VoidCallback onClicked,
   }) =>
-      InkWell(
+      GestureDetector(
         onTap: onClicked,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 10),

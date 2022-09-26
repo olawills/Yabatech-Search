@@ -18,10 +18,20 @@ class WebFooter extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                FooterText(title: 'About Yabatech'),
-                SizedBox(width: 10),
-                FooterText(title: 'Settings'),
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: const FooterText(
+                    title: 'About Yabatech',
+                  ),
+                ),
+                const SizedBox(width: 10),
+                InkWell(
+                  onTap: () {},
+                  child: const FooterText(
+                    title: 'Settings',
+                  ),
+                ),
               ],
             ),
             Row(
@@ -30,13 +40,11 @@ class WebFooter extends StatelessWidget {
                 const FooterText(title: 'Privacy'),
                 const SizedBox(width: 10),
                 themeProvider.isDarkMode
-                    ? FooterText(
+                    ? const FooterText(
                         title: ' Dark Theme',
-                        onPressed: () {},
                       )
-                    : FooterText(
+                    : const FooterText(
                         title: ' Light Theme',
-                        onPressed: () {},
                       ),
                 const SizedBox(width: 10),
                 const FooterText(title: 'Terms'),

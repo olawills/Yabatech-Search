@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class ResponsiveLayoutScreen extends StatelessWidget {
   final Widget mobileScreenLayout;
   final Widget webScreenLayout;
-  final Widget desktopScreenLayout;
+
   const ResponsiveLayoutScreen({
     Key? key,
     required this.mobileScreenLayout,
     required this.webScreenLayout,
-    required this.desktopScreenLayout,
   }) : super(key: key);
 
   @override

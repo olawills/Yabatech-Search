@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_search_engine/backend/database/api/api_service.dart';
 import 'package:google_search_engine/colors/colors.dart';
+import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
+import 'package:google_search_engine/frontend/widgets/SearchScreenErrorHandler/error_handle.dart';
 import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/searchHeader/search_header.dart';
+import 'package:google_search_engine/frontend/widgets/mobileSearchScreenHeader/mobile_search_screen_header.dart';
+import 'package:google_search_engine/frontend/widgets/searchFooter/search_footer.dart';
 import 'package:google_search_engine/frontend/widgets/searchReasult/search_result.dart';
 import 'package:google_search_engine/frontend/widgets/searchTabs/search_tabs.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../backend/database/api/api_service.dart';
-import '../../../widgets/SearchScreenErrorHandler/error_handle.dart';
-import '../../../widgets/searchFooter/search_footer.dart';
-
-class SearchScreen extends StatelessWidget {
+class MobileSearchScreen extends StatelessWidget {
   final String searchQuery;
   final String start;
-
-  const SearchScreen({
+  const MobileSearchScreen({
     Key? key,
     required this.searchQuery,
     this.start = '0',
   }) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return GestureDetector(
@@ -38,13 +36,11 @@ class SearchScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SearchHeader(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: SearchTabs(
-                      color: themeProvider.isDarkMode
-                          ? primaryColor
-                          : Colors.grey[800],
+                  const MobileSearchScreenHeader(),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 5),
+                    child: SingleChildScrollView(
+                      child: SearchTabs(),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -66,15 +62,19 @@ class SearchScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(left: 20, top: 12),
+                              padding: const EdgeInsets.only(left: 20, top: 15),
                               child: Text(
                                 "About ${snapshot.data?['searchInformation']['formattedTotalResults']} results (${snapshot.data?['searchInformation']['formattedSearchTime']} seconds)",
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 15,
+                                  color: themeProvider.isDarkMode
+                                      ? primaryColor
+                                      : Colors.black,
                                   // color: Color(0xff7075a),
                                 ),
                               ),
                             ),
+                            const SizedBox(height: 10),
                             ListView.builder(
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
@@ -82,7 +82,7 @@ class SearchScreen extends StatelessWidget {
                               itemBuilder: (context, index) {
                                 return Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 20, top: 20),
+                                      const EdgeInsets.only(left: 20, top: 10),
                                   child: SearchResult(
                                     linkToGo: snapshot.data?['items'][index]
                                         ['link'],
@@ -99,64 +99,59 @@ class SearchScreen extends StatelessWidget {
                             const SizedBox(height: 20),
                             SizedBox(
                               width: double.infinity,
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    TextButton(
-                                      onPressed: start != "0"
-                                          ? () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      SearchScreen(
-                                                    searchQuery: searchQuery,
-                                                    start:
-                                                        (int.parse(start) - 10)
-                                                            .toString(),
-                                                  ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  TextButton(
+                                    onPressed: start != "0"
+                                        ? () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SearchScreen(
+                                                  searchQuery: searchQuery,
+                                                  start: (int.parse(start) - 10)
+                                                      .toString(),
                                                 ),
-                                              );
-                                            }
-                                          : () {
-                                              // Get.back();
-                                              Get.toNamed("/");
-                                            },
-                                      child: const Text(
-                                        '< Prev',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: blueColor,
-                                        ),
+                                              ),
+                                            );
+                                          }
+                                        : () {
+                                            Get.toNamed("/");
+                                          },
+                                    child: const Text(
+                                      '< Prev',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: blueColor,
                                       ),
                                     ),
-                                    const SizedBox(width: 30),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => SearchScreen(
-                                              searchQuery: searchQuery,
-                                              start: (int.parse(start) + 10)
-                                                  .toString(),
-                                            ),
+                                  ),
+                                  const SizedBox(width: 30),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SearchScreen(
+                                            searchQuery: searchQuery,
+                                            start: (int.parse(start) + 10)
+                                                .toString(),
                                           ),
-                                        );
-                                      },
-                                      child: const Text(
-                                        'Next >',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          color: blueColor,
                                         ),
+                                      );
+                                    },
+                                    child: const Text(
+                                      'Next >',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: blueColor,
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                             const SizedBox(width: 30),
