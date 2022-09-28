@@ -1,83 +1,98 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/widgets/search/search_bar.dart';
-import 'package:google_search_engine/frontend/widgets/shortcutButtons/shortcut_buttons.dart';
-import 'package:google_search_engine/frontend/widgets/webFooter/web_footer.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/link.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/layout/webLayout/model/menu_itmes.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/search/search_bar.dart';
+import 'package:yabatech_search/frontend/widgets/shortcutButtons/shortcut_buttons.dart';
+import 'package:yabatech_search/frontend/widgets/webFooter/web_footer.dart';
 
-class WebScreenLayout extends StatelessWidget {
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  scopes: <String>[
+    'email',
+  ],
+);
+
+class WebScreenLayout extends StatefulWidget {
   const WebScreenLayout({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<WebScreenLayout> createState() => _WebScreenLayoutState();
+}
+
+class _WebScreenLayoutState extends State<WebScreenLayout> {
+  GoogleSignInAccount? _currentUser;
+  @override
+  void initState() {
+    super.initState();
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
+      setState(() {
+        _currentUser = account;
+      });
+    });
+    _googleSignIn.signInSilently();
+  }
+
+  Future<void> _handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error.toString());
+    }
+  }
+
+  Future<void> _handleSignOut(BuildContext context) =>
+      _googleSignIn.disconnect();
+  @override
   Widget build(BuildContext context) {
+    var historyLink = "https://www.yabatech.edu.ng/history.php";
+    var portalLink = "https://portal.yabatech.edu.ng/portalplus/";
     final themeProvider = Provider.of<ThemeProvider>(context);
-    // List recentWebsites = [
-    //   "g.png",
-    //   "t.png",
-    //   "f.png",
-    // ];
     final size = MediaQuery.of(context).size;
+    final colour = themeProvider.isDarkMode ? primaryColor : backgroundColor;
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor:
-        //     themeProvider.isDarkMode ? backgroundColor : primaryColor,
+        backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              'History of Yabatech',
-              style: TextStyle(
-                color: primaryColor,
-                fontWeight: FontWeight.w400,
+          Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(historyLink),
+            builder: (context, followLink) => TextButton(
+              onPressed: followLink,
+              child: Text(
+                'History of Yabatech',
+                style: TextStyle(
+                  color: colour,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              'Yabatech portal',
-              style: TextStyle(
-                color: primaryColor,
-                fontWeight: FontWeight.w400,
+          Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(portalLink),
+            builder: (context, yabaLink) => TextButton(
+              onPressed: yabaLink,
+              child: Text(
+                'Yabatech portal',
+                style: TextStyle(
+                  color: colour,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
           const SizedBox(width: 10),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/images/more-apps.svg",
-              color: primaryColor,
-            ),
-          ),
-          const SizedBox(width: 10),
+          // top: 10, right: 20
           Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0).copyWith(right: 10),
-            child: const CircleAvatar(
-              radius: 40,
-              backgroundImage: AssetImage(
-                'assets/images/3.jpg',
-                // user.photoURL!
-                // "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-              ),
-            ),
-            //     MaterialButton(
-            //   onPressed: () {},
-            //   color: const Color(0xff1a73eb),
-            //   child: const Text(
-            //     'Sign in',
-            //     style: TextStyle(
-            //       color: Colors.white,
-            //     ),
-            //   ),
-            // ),
-          )
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: _buildBody(),
+          ),
         ],
       ),
       body: Padding(
@@ -96,39 +111,6 @@ class WebScreenLayout extends StatelessWidget {
                       Search(),
                       SizedBox(height: 40),
                       ShortcutButtons(),
-                      // Wrap(
-                      //   children: List<Widget>.generate(3, (index) {
-                      //     return GestureDetector(
-                      //       onTap: () {},
-                      //       child: Padding(
-                      //         padding: const EdgeInsets.only(
-                      //           right: 30.0,
-                      //           left: 20.0,
-                      //         ),
-                      //         child: CircleAvatar(
-                      //           radius: 30,
-                      //           backgroundColor: primaryColor,
-                      //           // Theme.of(context).iconTheme.color,
-                      //           child: CircleAvatar(
-                      //             radius: 20,
-                      //             backgroundColor: primaryColor,
-                      //             // Theme.of(context).scaffoldBackgroundColor,
-                      //             child: CircleAvatar(
-                      //               backgroundColor: primaryColor,
-                      //               radius: 15,
-                      //               backgroundImage: AssetImage(
-                      //                 // ignore: prefer_interpolation_to_compose_strings
-                      //                 "assets/recent_websites_images/" +
-                      //                     recentWebsites[index],
-                      //               ),
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     );
-                      //   }),
-                      // ),
-                      // //
                       SizedBox(height: 30),
                     ],
                   ),
@@ -141,4 +123,55 @@ class WebScreenLayout extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildBody() {
+    final GoogleSignInAccount? user = _currentUser;
+    if (user != null) {
+      return Row(
+        children: [
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: NetworkImage(user.photoUrl!),
+            // title: Text(user.displayName ?? ''),
+            // subtitle: Text(user.email),
+          ),
+          PopupMenuButton<MenusItem>(
+            itemBuilder: (context) => [
+              ...MenuItems.itemsFirst.map(buildItems).toList(),
+            ],
+          ),
+        ],
+      );
+    } else {
+      return MaterialButton(
+        onPressed: _handleSignIn,
+        color: const Color(0xff1a73eb),
+        child: const Text(
+          'Sign in',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+  }
+
+  PopupMenuItem<MenusItem> buildItems(MenusItem item) => PopupMenuItem(
+        value: item,
+        child: TextButton(
+          onPressed: () {
+            _handleSignOut(context).whenComplete(() => Navigator.pop(context));
+          },
+          child: Row(
+            children: [
+              Icon(item.icon, color: Colors.black, size: 20),
+              const SizedBox(width: 12),
+              Text(
+                item.text,
+                style: const TextStyle(fontSize: 14),
+              ),
+            ],
+          ),
+        ),
+      );
 }

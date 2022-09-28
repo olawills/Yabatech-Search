@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/frontend/widgets/searchTabs/search_buttons_tabs.dart';
+import 'package:yabatech_search/frontend/widgets/searchTabs/search_buttons_tabs.dart';
 
 class SearchTabs extends StatelessWidget {
   final Color? color;

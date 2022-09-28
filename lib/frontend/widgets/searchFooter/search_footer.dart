@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 
 class SearchFooter extends StatelessWidget {
   const SearchFooter({Key? key}) : super(key: key);

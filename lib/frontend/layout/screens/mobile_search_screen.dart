@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_search_engine/backend/database/api/api_service.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
-import 'package:google_search_engine/frontend/widgets/SearchScreenErrorHandler/error_handle.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/mobileSearchScreenHeader/mobile_search_screen_header.dart';
-import 'package:google_search_engine/frontend/widgets/searchFooter/search_footer.dart';
-import 'package:google_search_engine/frontend/widgets/searchReasult/search_result.dart';
-import 'package:google_search_engine/frontend/widgets/searchTabs/search_tabs.dart';
+
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/backend/database/api/api_service.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/layout/screens/searchScreen/search_screen.dart';
+import 'package:yabatech_search/frontend/widgets/SearchScreenErrorHandler/error_handle.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/mobileSearchScreenHeader/mobile_search_screen_header.dart';
+import 'package:yabatech_search/frontend/widgets/searchFooter/search_footer.dart';
+import 'package:yabatech_search/frontend/widgets/searchReasult/search_result.dart';
+import 'package:yabatech_search/frontend/widgets/searchTabs/search_tabs.dart';
 
 class MobileSearchScreen extends StatelessWidget {
   final String searchQuery;

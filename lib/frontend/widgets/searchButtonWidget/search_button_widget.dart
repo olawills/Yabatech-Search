@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
 
 class SearchButtonWidget extends StatelessWidget {
   final String title;
@@ -16,19 +14,6 @@ class SearchButtonWidget extends StatelessWidget {
     return MaterialButton(
       onPressed: () {},
       child: Text(title),
-      // elevation: 0,
-      // shape: const RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.all(
-      //     Radius.circular(4),
-      //   ),
-      // ),
-      // padding: const EdgeInsets.symmetric(
-      //   horizontal: 25,
-      //   vertical: 18,
-      // ),
-      // hoverColor: blueColor,
-      // color: Colors.transparent,
-      // child: Text(title),
     );
   }
 }

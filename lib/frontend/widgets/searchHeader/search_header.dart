@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/layout/screens/searchScreen/search_screen.dart';
 
 class SearchHeader extends StatelessWidget {
   const SearchHeader({

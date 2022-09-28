@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LinkText extends StatefulWidget {
-  final Function()? onTap;
+  final Function()? onPressed;
   final TextStyle? textStyle;
   final String text;
   final String link;
@@ -9,7 +9,7 @@ class LinkText extends StatefulWidget {
     Key? key,
     required this.link,
     required this.text,
-    this.onTap,
+    this.onPressed,
     this.textStyle,
   }) : super(key: key);
 
@@ -25,12 +25,7 @@ class _LinkTextState extends State<LinkText> {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
-      onTap: widget.onTap,
-      // () async {
-      //   if (await canLaunchUrlString(
-      //     widget.linkToGo,
-      //   )) ;
-      // },
+      onTap: widget.onPressed,
       onHover: (hovering) {
         setState(() {
           showUnderline = hovering;

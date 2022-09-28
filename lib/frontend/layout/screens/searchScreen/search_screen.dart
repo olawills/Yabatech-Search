@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/searchHeader/search_header.dart';
-import 'package:google_search_engine/frontend/widgets/searchReasult/search_result.dart';
-import 'package:google_search_engine/frontend/widgets/searchTabs/search_tabs.dart';
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/searchHeader/search_header.dart';
+import 'package:yabatech_search/frontend/widgets/searchReasult/search_result.dart';
+import 'package:yabatech_search/frontend/widgets/searchTabs/search_tabs.dart';
 
 import '../../../../backend/database/api/api_service.dart';
 import '../../../widgets/SearchScreenErrorHandler/error_handle.dart';

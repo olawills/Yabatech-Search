@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/linkText/link_text.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/link.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/linkText/link_text.dart';
 
 class SearchResult extends StatelessWidget {
   final String linkToGo;
@@ -33,19 +33,18 @@ class SearchResult extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
-          child: LinkText(
-            link: link,
-            text: text,
-            textStyle: TextStyle(
-              color: themeProvider.isDarkMode ? primaryColor : Colors.black,
-              fontSize: 20,
+          child: Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(linkToGo),
+            builder: (context, followLink) => LinkText(
+              link: link,
+              text: text,
+              textStyle: TextStyle(
+                color: themeProvider.isDarkMode ? primaryColor : Colors.black,
+                fontSize: 20,
+              ),
+              onPressed: followLink,
             ),
-            onTap: () async {
-              final uri = Uri.parse(linkToGo);
-              if (await canLaunchUrl(uri)) {
-                launchUrl(uri);
-              }
-            },
           ),
         ),
         Text(

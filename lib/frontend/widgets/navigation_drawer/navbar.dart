@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/userPage/user_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/userPage/user_page.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<NavigationDrawer> createState() => _NavigationDrawerState();
+}
+
+class _NavigationDrawerState extends State<NavigationDrawer> {
   @override
   Widget build(BuildContext context) {
     final themeProvider =
@@ -13,8 +19,8 @@ class NavigationDrawer extends StatelessWidget {
             ? 'Dark Mode'
             : 'Light Mode';
 
-    const name = 'Williams Olabamidele';
-    const email = 'wobdele@gmail.com';
+    const name = "Sign in";
+    const email = "wobdele@gmail.com";
     const urlImage =
         "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
 
@@ -117,6 +123,7 @@ class NavigationDrawer extends StatelessWidget {
           ),
         ),
       );
+
   onClicked(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Switch.adaptive(
@@ -127,32 +134,4 @@ class NavigationDrawer extends StatelessWidget {
       },
     );
   }
-
-//   void selectedItem(BuildContext context, int index) {
-//     Navigator.of(context).pop();
-//     switch (index) {
-//       case 0:
-//         Navigator.of(context).push(
-//           MaterialPageRoute(
-//             builder: (context) => const DarkMode(),
-//           ),
-//         );
-//         break;
-//       // case 1:
-//       //   Navigator.of(context).push(
-//       //     MaterialPageRoute(
-//       //       builder: (context) => const AccountSetings(),
-//       //     ),
-//       //   );
-//       //   break;
-//       // case 2:
-//       //   Navigator.of(context).push(
-//       //     MaterialPageRoute(
-//       //       builder: (context) => const MobileScreenLayout(),
-//       //     ),
-//       //   );
-//       //   break;
-//     }
-//   }
-// }
 }

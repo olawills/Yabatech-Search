@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_search_engine/colors/colors.dart';
-import 'package:google_search_engine/frontend/layout/screens/mobile_search_screen.dart';
-import 'package:google_search_engine/frontend/layout/screens/searchScreen/search_screen.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/colors/colors.dart';
+import 'package:yabatech_search/frontend/layout/screens/mobile_search_screen.dart';
+import 'package:yabatech_search/frontend/layout/screens/searchScreen/search_screen.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
@@ -82,7 +82,9 @@ class Search extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: SvgPicture.asset(
                         'assets/images/search-icon.svg',
-                        color: themeProvider.isDarkMode ? primaryColor : backgroundColor,
+                        color: themeProvider.isDarkMode
+                            ? primaryColor
+                            : backgroundColor,
                         width: 1,
                         height: 1,
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/colors/colors.dart';
+import 'package:url_launcher/link.dart';
+import 'package:yabatech_search/colors/colors.dart';
 
 class ShortcutButtons extends StatelessWidget {
   const ShortcutButtons({
@@ -8,62 +9,77 @@ class ShortcutButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var yabatechLink = "https://www.yabatech.edu.ng";
+    var googleLink = "https://www.google.com";
+    var facebookLink = "https://www.facebook.com";
     return Padding(
-      padding: const EdgeInsets.only(right: 70),
+      padding: const EdgeInsets.only(right: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: () {},
-            child: const CircleAvatar(
-              radius: 25,
-              backgroundColor: primaryColor,
-              child: CircleAvatar(
-                radius: 20,
+          Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(yabatechLink),
+            builder: (context, followLink) => TextButton(
+              onPressed: followLink,
+              child: const CircleAvatar(
+                radius: 25,
                 backgroundColor: primaryColor,
                 child: CircleAvatar(
-                  radius: 15,
+                  radius: 20,
                   backgroundColor: primaryColor,
-                  backgroundImage: AssetImage(
-                    'assets/recent_websites_images/l.png',
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: primaryColor,
+                    backgroundImage: AssetImage(
+                      'assets/recent_websites_images/l.png',
+                    ),
                   ),
                 ),
               ),
             ),
           ),
           const SizedBox(width: 50),
-          GestureDetector(
-            onTap: () {},
-            child: const CircleAvatar(
-              radius: 25,
-              backgroundColor: primaryColor,
-              child: CircleAvatar(
-                radius: 20,
+          Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(googleLink),
+            builder: (context, google) => TextButton(
+              onPressed: google,
+              child: const CircleAvatar(
+                radius: 25,
                 backgroundColor: primaryColor,
                 child: CircleAvatar(
-                  radius: 15,
+                  radius: 20,
                   backgroundColor: primaryColor,
-                  backgroundImage: AssetImage(
-                    'assets/recent_websites_images/g.png',
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: primaryColor,
+                    backgroundImage: AssetImage(
+                      'assets/recent_websites_images/g.png',
+                    ),
                   ),
                 ),
               ),
             ),
           ),
           const SizedBox(width: 50),
-          GestureDetector(
-            onTap: () {},
-            child: const CircleAvatar(
-              radius: 25,
-              backgroundColor: primaryColor,
-              child: CircleAvatar(
-                radius: 20,
+          Link(
+            target: LinkTarget.blank,
+            uri: Uri.parse(facebookLink),
+            builder: (context, fb) => TextButton(
+              onPressed: fb,
+              child: const CircleAvatar(
+                radius: 25,
                 backgroundColor: primaryColor,
                 child: CircleAvatar(
-                  radius: 15,
+                  radius: 20,
                   backgroundColor: primaryColor,
-                  backgroundImage: AssetImage(
-                    'assets/recent_websites_images/f.png',
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: primaryColor,
+                    backgroundImage: AssetImage(
+                      'assets/recent_websites_images/f.png',
+                    ),
                   ),
                 ),
               ),

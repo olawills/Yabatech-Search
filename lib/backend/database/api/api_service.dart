@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/backend/apiKey/apiKey.dart';
-import 'package:google_search_engine/backend/database/api/api_json.dart';
+import 'package:yabatech_search/backend/apiKey/apiKey.dart';
 import 'package:http/http.dart' as http;
+import 'package:yabatech_search/backend/database/api/api_json.dart';
 
 class ApiService {
   bool isDummyData = false;

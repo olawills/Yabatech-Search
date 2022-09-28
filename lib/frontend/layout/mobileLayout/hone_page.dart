@@ -1,10 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/backend/auth/auth.dart';
-import 'package:google_search_engine/frontend/layout/mobileLayout/mobile_layout.dart';
-import 'package:google_search_engine/frontend/widgets/navigation_drawer/navbar.dart';
-import 'package:google_search_engine/frontend/widgets/search/search_bar.dart';
-import 'package:google_search_engine/frontend/widgets/searchButtons/search_button.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {

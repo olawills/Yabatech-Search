@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/colors/colors.dart';
+import 'package:yabatech_search/colors/colors.dart';
 
 class MyThemes {
   static final darkTheme = ThemeData(

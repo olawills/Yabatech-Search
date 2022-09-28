@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
-import 'package:google_search_engine/frontend/widgets/footerText/footer_text.dart';
 import 'package:provider/provider.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/footerText/footer_text.dart';
 
 class WebFooter extends StatelessWidget {
   const WebFooter({Key? key}) : super(key: key);

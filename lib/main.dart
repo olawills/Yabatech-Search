@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_search_engine/frontend/layout/mobileLayout/mobile_layout.dart';
-import 'package:google_search_engine/frontend/layout/responsive/responsive_layout_screen.dart';
-import 'package:google_search_engine/frontend/layout/webLayout/web_layout.dart';
-import 'package:google_search_engine/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
+import 'package:yabatech_search/frontend/layout/mobileLayout/mobile_layout.dart';
+import 'package:yabatech_search/frontend/layout/responsive/responsive_layout_screen.dart';
+import 'package:yabatech_search/frontend/layout/webLayout/web_layout.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +31,7 @@ class MyApp extends StatelessWidget {
           darkTheme: MyThemes.darkTheme,
           // home:
           // const HomePage()
-          // const SearchScreen(),
-          //     const ResponsiveLayoutScreen(
-          //   mobileScreenLayout: MobileScreenLayout(),
-          //   webScreenLayout: WebScreenLayout(),
-          // ),
+
           initialRoute: "/",
           getPages: [
             GetPage(
@@ -44,9 +40,7 @@ class MyApp extends StatelessWidget {
                 mobileScreenLayout: MobileScreenLayout(),
                 webScreenLayout: WebScreenLayout(),
               ),
-              
             ),
-            
           ],
         );
       },
