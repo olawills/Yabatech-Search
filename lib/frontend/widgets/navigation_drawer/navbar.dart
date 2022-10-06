@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_toggle.dart';
 import 'package:yabatech_search/frontend/widgets/userPage/user_page.dart';
 
 class NavigationDrawer extends StatefulWidget {
@@ -20,7 +20,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
             : 'Light Mode';
 
     const name = "Sign in";
-    const email = "wobdele@gmail.com";
+    const email = "You haven't Sign In yet";
     const urlImage =
         "https://images.unsplash.com/photo-1663524789641-ac21f6ee2301?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
 
@@ -45,7 +45,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
               const SizedBox(height: 30),
               Row(
                 children: [
-                  onClicked(context),
+                  DarkModeToggle().onClicked(context),
                   Text(
                     themeProvider,
                     style: const TextStyle(
@@ -123,15 +123,4 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
           ),
         ),
       );
-
-  onClicked(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    return Switch.adaptive(
-      value: themeProvider.isDarkMode,
-      onChanged: (value) {
-        final provider = Provider.of<ThemeProvider>(context, listen: false);
-        provider.toggleTheme(value);
-      },
-    );
-  }
 }

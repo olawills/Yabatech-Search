@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yabatech_search/colors/colors.dart';
-import 'package:yabatech_search/frontend/layout/screens/mobile_search_screen.dart';
+import 'package:yabatech_search/frontend/layout/screens/mobileSeachScreen/mobile_search_screen.dart';
 import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 
 class MobileSearchScreenHeader extends StatelessWidget {

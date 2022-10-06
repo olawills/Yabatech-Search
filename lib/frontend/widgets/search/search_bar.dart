@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:yabatech_search/colors/colors.dart';
-import 'package:yabatech_search/frontend/layout/screens/mobile_search_screen.dart';
+import 'package:yabatech_search/frontend/layout/screens/mobileSeachScreen/mobile_search_screen.dart';
 import 'package:yabatech_search/frontend/layout/screens/searchScreen/search_screen.dart';
 import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_light_mode.dart';
 
@@ -29,7 +29,7 @@ class Search extends StatelessWidget {
                       width: size.width * 0.42,
                     ),
                     Text(
-                      "Yabatech Search",
+                      "Yts Search",
                       style: TextStyle(
                         fontSize: size.height > 768
                             ? size.height * 0.08

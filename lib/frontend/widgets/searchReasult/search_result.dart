@@ -34,7 +34,7 @@ class SearchResult extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Link(
-            target: LinkTarget.blank,
+            target: LinkTarget.self,
             uri: Uri.parse(linkToGo),
             builder: (context, followLink) => LinkText(
               link: link,

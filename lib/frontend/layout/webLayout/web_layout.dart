@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yabatech_search/frontend/widgets/darkModeFeature/dark_mode_toggle.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/link.dart';
@@ -49,15 +50,39 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
       _googleSignIn.disconnect();
   @override
   Widget build(BuildContext context) {
-    var historyLink = "https://www.yabatech.edu.ng/history.php";
-    var portalLink = "https://portal.yabatech.edu.ng/portalplus/";
+    const historyLink = "https://www.yabatech.edu.ng/history.php";
+    const portalLink = "https://portal.yabatech.edu.ng/portalplus/";
     final themeProvider = Provider.of<ThemeProvider>(context);
     final size = MediaQuery.of(context).size;
-    final colour = themeProvider.isDarkMode ? primaryColor : backgroundColor;
+    final colour = themeProvider.isDarkMode ? Colors.white : backgroundColor;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: DarkModeToggle().onClicked(context),
+        // themeProvider.isDarkMode
+        //     ? Padding(
+        //         padding: const EdgeInsets.only(left: 20),
+        //         child: IconButton(
+        //           icon: const Icon(
+        //             FontAwesomeIcons.moon,
+        //             color: Colors.grey,
+        //             size: 50,
+        //           ),
+        //           onPressed: () {},
+        //         ),
+        //       )
+        //     : Padding(
+        //         padding: const EdgeInsets.only(left: 20),
+        //         child: IconButton(
+        //           icon: const Icon(
+        //             FontAwesomeIcons.moon,
+        //             color: Colors.black,
+        //             size: 50,
+        //           ),
+        //           onPressed: () {},
+        //         ),
+        //       ),
         actions: [
           Link(
             target: LinkTarget.blank,
@@ -130,7 +155,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
       return Row(
         children: [
           CircleAvatar(
-            radius: 50,
+            radius: 70,
             backgroundImage: NetworkImage(user.photoUrl!),
             // title: Text(user.displayName ?? ''),
             // subtitle: Text(user.email),
@@ -175,3 +200,5 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         ),
       );
 }
+
+// flutter run -d chrome --web-hostname localhost --web-port 5000
