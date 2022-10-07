@@ -54,12 +54,25 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
     const portalLink = "https://portal.yabatech.edu.ng/portalplus/";
     final themeProvider = Provider.of<ThemeProvider>(context);
     final size = MediaQuery.of(context).size;
+    final colorProvider =
+        Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark
+            ? 'Dark Mode'
+            : 'Light Mode';
     final colour = themeProvider.isDarkMode ? Colors.white : backgroundColor;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: DarkModeToggle().onClicked(context),
+        leading: Row(children: [
+          DarkModeToggle().onClicked(context),
+          Text(
+            colorProvider,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.transparent,
+            ),
+          )
+        ]),
         // themeProvider.isDarkMode
         //     ? Padding(
         //         padding: const EdgeInsets.only(left: 20),
