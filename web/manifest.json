@@ -1,6 +1,6 @@
 {
-    "name": "google_search_engine",
-    "short_name": "google_search_engine",
+    "name": "Yts Search",
+    "short_name": "Yts Search",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
