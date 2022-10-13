@@ -1,4 +1,5 @@
-# Design and Implemetation Of Search Engine
+# Designing Search Engine
+Stay for more update
 
 # Light Mode for Web Users
 ![](screenshots/1.png)   ![](screenshots/2.png)
