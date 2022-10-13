@@ -31,7 +31,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/apiKey/
+/lib/backend/apiKey/
+/lib/firebase_options.dart
 
 
 
