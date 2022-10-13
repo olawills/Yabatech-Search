@@ -1,18 +1,15 @@
-<<<<<<< HEAD
-# Designing Search Engine
+# Designing Your Own Search Engine With Flutter & Firebase
 Stay for more update
-=======
-# Designing A Search Engine
->>>>>>> 0a2f777 (updated the web_layout)
+#Features 
 
-# Light Mode for Web Users
+ Light Mode for Web Users
 ![](screenshots/3.png)   ![](screenshots/4.png)
 
-# Dark Mode for Web Users
+ Dark Mode for Web Users
 ![](screenshots/1.png)     ![](screenshots/2.png)
 
-# Android / Mobile Users
-# Comming Soon....
+# Mobile Users
+Coming Soon....
 Follow For More Projects
 
 
