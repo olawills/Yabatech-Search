@@ -1,16 +1,19 @@
+<<<<<<< HEAD
 # Designing Search Engine
 Stay for more update
+=======
+# Designing A Search Engine
+>>>>>>> 0a2f777 (updated the web_layout)
 
 # Light Mode for Web Users
-![](screenshots/1.png)   ![](screenshots/2.png)
-![](screenshots/3.png) 
+![](screenshots/3.png)   ![](screenshots/4.png)
 
 # Dark Mode for Web Users
-![](screenshots/4.png)     ![](screenshots/5.png)
-![](screenshots/6.png)
+![](screenshots/1.png)     ![](screenshots/2.png)
 
 # Android / Mobile Users
-Comming Soon....
+# Comming Soon....
+Follow For More Projects
 
 
 # A School project built with Flutter and Firebase.

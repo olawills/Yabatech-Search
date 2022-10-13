@@ -44,7 +44,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDxTxuI_o_xn3lxu1BkYW8n2Wn97N_RGMY',
+    apiKey: '',
     appId: '1:100628899608:web:b6190118ca935460e9206d',
     messagingSenderId: '100628899608',
     projectId: 'yabatechsearch',
@@ -53,7 +53,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyATkWRhjTF5h-IesPdav6uHBwLaHIi5wxA',
+    apiKey: '',
     appId: '1:100628899608:android:8a816d11597495c5e9206d',
     messagingSenderId: '100628899608',
     projectId: 'yabatechsearch',
@@ -61,22 +61,24 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDBTcuknZzFX6dOqk8OpFJLz19vSv0faPk',
+    apiKey: '',
     appId: '1:100628899608:ios:67d40238d224f929e9206d',
     messagingSenderId: '100628899608',
     projectId: 'yabatechsearch',
     storageBucket: 'yabatechsearch.appspot.com',
-    iosClientId: '100628899608-ve8bqqvfusde9el5cj4durj7786gm8gl.apps.googleusercontent.com',
+    iosClientId:
+        '100628899608-ve8bqqvfusde9el5cj4durj7786gm8gl.apps.googleusercontent.com',
     iosBundleId: 'com.example.googleSearchEngine',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDBTcuknZzFX6dOqk8OpFJLz19vSv0faPk',
+    apiKey: '',
     appId: '1:100628899608:ios:67d40238d224f929e9206d',
     messagingSenderId: '100628899608',
     projectId: 'yabatechsearch',
     storageBucket: 'yabatechsearch.appspot.com',
-    iosClientId: '100628899608-ve8bqqvfusde9el5cj4durj7786gm8gl.apps.googleusercontent.com',
+    iosClientId:
+        '100628899608-ve8bqqvfusde9el5cj4durj7786gm8gl.apps.googleusercontent.com',
     iosBundleId: 'com.example.googleSearchEngine',
   );
 }

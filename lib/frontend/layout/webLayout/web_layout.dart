@@ -63,16 +63,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Row(children: [
-          DarkModeToggle().onClicked(context),
-          Text(
-            colorProvider,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.transparent,
-            ),
-          )
-        ]),
+
         // themeProvider.isDarkMode
         //     ? Padding(
         //         padding: const EdgeInsets.only(left: 20),
@@ -97,6 +88,19 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
         //         ),
         //       ),
         actions: [
+          Row(
+            children: [
+              DarkModeToggle().onClicked(context),
+              const SizedBox(width: 10),
+              Text(
+                colorProvider,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: colour,
+                ),
+              )
+            ],
+          ),
           Link(
             target: LinkTarget.blank,
             uri: Uri.parse(historyLink),
