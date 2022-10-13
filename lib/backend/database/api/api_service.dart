@@ -6,7 +6,7 @@ import 'package:yabatech_search/backend/database/api/api_json.dart';
 
 class ApiService {
   bool isDummyData = false;
-  String apiKey = 'AIzaSyAEapKCa4Qvsg7ip40BnXjeRa1fn-8ovf0';
+  String apiKey = '';
 
   Future<Map<String, dynamic>> fetchData(
       {required BuildContext context,
