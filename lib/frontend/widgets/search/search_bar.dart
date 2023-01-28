@@ -29,7 +29,7 @@ class Search extends StatelessWidget {
                       width: size.width * 0.42,
                     ),
                     Text(
-                      "Yts Search",
+                      "Search Portal",
                       style: TextStyle(
                         fontSize: size.height > 768
                             ? size.height * 0.08

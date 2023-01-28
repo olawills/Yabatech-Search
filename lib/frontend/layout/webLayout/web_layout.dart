@@ -63,44 +63,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-
-        // themeProvider.isDarkMode
-        //     ? Padding(
-        //         padding: const EdgeInsets.only(left: 20),
-        //         child: IconButton(
-        //           icon: const Icon(
-        //             FontAwesomeIcons.moon,
-        //             color: Colors.grey,
-        //             size: 50,
-        //           ),
-        //           onPressed: () {},
-        //         ),
-        //       )
-        //     : Padding(
-        //         padding: const EdgeInsets.only(left: 20),
-        //         child: IconButton(
-        //           icon: const Icon(
-        //             FontAwesomeIcons.moon,
-        //             color: Colors.black,
-        //             size: 50,
-        //           ),
-        //           onPressed: () {},
-        //         ),
-        //       ),
         actions: [
-          Row(
-            children: [
-              DarkModeToggle().onClicked(context),
-              const SizedBox(width: 10),
-              Text(
-                colorProvider,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: colour,
-                ),
-              )
-            ],
-          ),
           Link(
             target: LinkTarget.blank,
             uri: Uri.parse(historyLink),
@@ -121,7 +84,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
             builder: (context, yabaLink) => TextButton(
               onPressed: yabaLink,
               child: Text(
-                'Yabatech portal',
+                'Search Portal',
                 style: TextStyle(
                   color: colour,
                   fontWeight: FontWeight.w400,
@@ -134,6 +97,15 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: _buildBody(),
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: DarkModeToggle().onClicked(context),
+              ),
+              const SizedBox(width: 10),
+            ],
           ),
         ],
       ),
@@ -156,7 +128,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
                       SizedBox(height: 30),
                     ],
                   ),
-                  const WebFooter(),
+                  // const WebFooter(),
                 ],
               ),
             ),
